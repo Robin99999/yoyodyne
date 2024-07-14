@@ -67,7 +67,10 @@ class Index:
         target_vocabulary: Optional[List[str]] = None,
     ):
         """Initializes the index.
-
+        combined_vocabulary = source_vocabulary + (target_vocabulary if target_vocabulary is not None else [])
+        combined_vocabulary = sorted(combined_vocabulary)
+        source_vocabulary = combined_vocabulary
+        target_vocabulary = combined_vocabulary.copy()
         Args:
             source_vocabulary (List[str]).
             features_vocabulary (List[str], optional).
